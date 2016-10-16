@@ -31,6 +31,16 @@
 ;; GROUP: Convenience -> HL Line
 (global-hl-line-mode) ;; toggle line highlighting in all buffers
 
+;; write `list-colors-display` to see a list of Emacs colors.
+(set-face-background hl-line-face "#202120")
+
+
+
+
+
+;; y or n is enough when prompting, e.g. when installing packages
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 
 ;; GROUP: Convenience -> Ibuffer
 (setq ibuffer-use-other-window t) ;; always display ibuffer in another window
@@ -75,6 +85,7 @@
 ;;                               ;;
 ;; GROUP: Convenience -> Company ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
 

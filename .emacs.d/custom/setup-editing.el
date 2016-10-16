@@ -12,22 +12,20 @@
  kill-whole-line t        ; if NIL, kill whole line and move the next line up
  )
 
-
-;; GROUP: Editing -> Editing Basics
-
-;; default to 4 visible spaces to display a tab
-;; for more info visit "https://www.emacswiki.org/emacs/IndentationBasics"
-(setq-default tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GROUP: Editing -> Editing Basics ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 
-;; tabs will not be used for indentation, instead use spaces
-(setq-default indent-tabs-mode nil)
+;; when point is on a paired paranthesis, the other is highlighted.
+;; delay is measured in seconds.
+(setq show-paren-delay 0.1)
+(show-paren-mode 1)
+
+
 
 ;; when this mode is active, marked text will be replaced with newly written
 (delete-selection-mode)
@@ -141,6 +139,7 @@ point reaches the beginning or end of the buffer, stop there."
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
+(smartparens-mode t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -166,13 +165,4 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Press C-_ to redo.
 (require 'undo-tree)
 (global-undo-tree-mode)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Package: yasnippet                 ;;
-;;                                    ;;
-;; GROUP: Editing -> Yasnippet        ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'yasnippet)
-(yas-global-mode 1)
 

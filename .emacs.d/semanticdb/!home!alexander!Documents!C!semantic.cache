@@ -1,0 +1,27 @@
+;; Object C/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "C/"
+  :tables
+  (list
+    (semanticdb-table "perm.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("math.h" include (:system-flag t) nil [20 37])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [49 58])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [59 71]))                  
+                :type "int")
+                nil [40 750]))          
+      :file "perm.c"
+      :pointmax 751
+      :fsize 750
+      :lastmodtime '(22471 20177 191292 335000)
+      :unmatched-syntax nil))
+  :file "!home!alexander!Documents!C!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

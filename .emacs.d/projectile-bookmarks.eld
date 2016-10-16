@@ -1,1 +1,1 @@
-("~/")
+("~/" "~/Documents/github/Calendar_App/" "~/Documents/github/Vampires_vs_Slayers/")

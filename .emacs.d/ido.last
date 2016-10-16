@@ -25,10 +25,10 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "setup-convenience.el"
+ "setup-editing.el"
  "setup-helm.el"
  "company-gtags.el"
- "setup-editing.el"
- "setup-convenience.el"
  "init.el"
  "setup-communication.el"
  "setup-applications.el"
@@ -39,17 +39,19 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/alexander/.emacs.d/custom/" (22465 29662 896797 359000) "setup-local.el" "setup-files.el" "setup-editing.el~" "setup-convenience.el~" "setup-text.el" "setup-programming.el" "setup-faces.el" "setup-communication.el" "setup-helm.el~" "setup-help.el" "setup-helm.el" "../" "setup-data.el" "setup-editing.el" "./" "setup-applications.el" "setup-external.el" "setup-environment.el" "setup-convenience.el" "setup-development.el")
+ ("/home/alexander/.emacs.d/custom/" (22473 53406 162181 992000) "setup-local.el" "setup-files.el" "setup-text.el" "new" "setup-programming.el" "setup-faces.el" "setup-communication.el" "setup-help.el" "setup-helm.el" "../" "setup-data.el" "setup-editing.el" "./" "setup-applications.el" "setup-external.el" "setup-environment.el" "setup-convenience.el" "setup-development.el")
+
+ ("/home/alexander/.emacs.d/" (22473 61985 876706 596000) "init.el" "snippets/" "places" "auto-save-list/" "recentf" "custom/" "semanticdb/" ".python-environments/" "elpa/" "eshell/" "../" "./" "ido.last" "projectile-bookmarks.eld" "ido.last~")
+
+ ("/home/alexander/" (22474 51358 783371 22000) "Templates/" "Videos/" ".gvfs/" ".python_history" ".gnupg/" ".git/" ".cmake/" ".emacs_workgroups" "Downloads/" "global-6.5/" ".vscode/" ".local/" "UNIX_TEST/" "Music/" ".ssh/" ".pip/" ".compiz/" ".rnd" "fsharpbinding/" ".pki/" ".gitconfig" "emacs-backups/" ".aptitude/" ".fluxgui.pid" "company-c-headers/" "MOK.priv" ".gnome2/" ".mono/" ".profile" ".node_repl_history" "Pictures/" ".Xauthority" ".Private/" "emacs_backups/" "bin/" ".atom/" ".emacs.d/" "examples.desktop" ".bashrc" ".backups/" ".recently-used" ".config/" ".bashrc-org" "MOK.der" ".macromedia/" "VirtualBox VMs/" ".gnome2_private/" ".xinputrc" ".emacs_workgroups~" ".viminfo" ".nano/" "virtualenvs/" ".bash_logout" ".xsession-errors" ".thumbnails/" ".ecryptfs/" ".xsession-errors.old" ".mozilla/" ".gconf/" ".bash_history" "Documents/" ".sudo_as_admin_successful" ".cache/" ".adobe/" ".gnuplot_history" ".bashrc.swp" "AAA_emacs_trash/" ".gimp-2.8/" "Public/" ".dbus/" ".subversion/" ".thunderbird/" ".xprofile" ".ICEauthority" "Desktop/" "../" "./")
+
+ ("/home/alexander/Documents/" (22473 36543 734723 852000) "tmux/" ".terminalTest" "Python/" "unix_like_data_processing/" "C/" "the_settlers_backup/" "elpy-master/" "ComSys/" "github/" "emacs Python/" "poem~" "F#/" "hackerrank/" "rust/" "C++/" "MASD/" "20151120_Window/" "UbuntuPrivateKey.zip" "fra_simon/" "sejlads.txt" "C#/" "rules.txt" "hej/" "../" "WindowJonPanel/" "bogliste" "terminalTest/" "./" "emacs_test/" "kvinde_reflektion.txt" "free GIMP tutorials.desktop" "rules.txt~" "emacs/" "poem.txt")
+
+ ("/home/alexander/Documents/C/" (22473 61952 352875 480000) "pointertest" "malloctest" "hello.c" "perm" "The.C.Programming.Language.2nd.Edition.pdf" "malloctest.c" "a.out" "linux_c_style_guide" "the_c_programming_language_2.pdf" "../" "perm.c" "./" "ModernC examples/" "pointertest.c" "ModernC.pdf")
 
  ("/home/alexander/Desktop/" (22463 19164 707970 114000) "øv5.fsx~" "touch hej.fsx~" "Atom.sh~" "../" "./" "test.py~")
 
  ("/home/alexander/Documents/F#/Christian Undervisning/session_3/" (22463 19164 707970 114000) "resume" "øv5.exe" "discriminated_unions.fsx~" "../" "./" "øv5.fsx" "discriminated_unions.exe" "discriminated_unions.fsx")
-
- ("/home/alexander/.emacs.d/" (22464 54484 319658 164000) "init.el" "snippets/" "init.el~" "auto-save-list/" "custom/" "elpa/" "eshell/" "../" "./" "ido.last" "projectile-bookmarks.eld" "ido.last~")
-
- ("/home/alexander/" (22465 24423 479462 969000) "Templates/" "Videos/" ".gvfs/" ".python_history" ".gnupg/" ".git/" ".cmake/" ".emacs_workgroups" "Downloads/" "global-6.5/" ".vscode/" ".local/" "UNIX_TEST/" "Music/" ".ssh/" ".pip/" ".compiz/" ".rnd" "fsharpbinding/" ".pki/" ".gitconfig" ".aptitude/" ".fluxgui.pid" "company-c-headers/" "MOK.priv" ".gnome2/" ".mono/" ".profile" ".node_repl_history" "Pictures/" ".Xauthority" ".Private/" "bin/" ".atom/" ".emacs.d/" "examples.desktop" ".bashrc" ".recently-used" ".config/" ".bashrc-org" "MOK.der" ".macromedia/" "VirtualBox VMs/" ".gnome2_private/" ".xinputrc" ".emacs_workgroups~" ".viminfo" ".nano/" "virtualenvs/" ".bash_logout" ".xsession-errors" ".thumbnails/" ".ecryptfs/" ".xsession-errors.old" ".mozilla/" ".gconf/" ".bash_history" "Documents/" ".sudo_as_admin_successful" ".cache/" ".adobe/" ".gnuplot_history" ".bashrc.swp" "AAA_emacs_trash/" ".gimp-2.8/" "Public/" ".dbus/" ".subversion/" ".thunderbird/" ".xprofile" ".ICEauthority" "Desktop/" "../" "./")
-
- ("/home/alexander/Documents/" (22464 39828 457022 446000) "tmux/" ".terminalTest" "unix_like_data_processing/" "C/" "the_settlers_backup/" "elpy-master/" "ComSys/" "github/" "emacs Python/" "poem~" "F#/" "hackerrank/" "C++/" "MASD/" "20151120_Window/" "UbuntuPrivateKey.zip" "fra_simon/" "sejlads.txt" "C#/" "rules.txt" "hej/" "../" "WindowJonPanel/" "bogliste" "terminalTest/" "./" "emacs_test/" "kvinde_reflektion.txt" "free GIMP tutorials.desktop" "rules.txt~" "emacs/" "poem.txt")
 
  ("/home/alexander/Documents/emacs/" (22464 54690 58580 642000) "bjarne_stroustrup.txt" "emacs_introduction_and_demonstration.txt" "emacs_guides.txt" "todo.txt" "run.sh" "helm_intro.txt" "../" "#hej#" "./" "company_website.txt" "mastering_emacs.txt" "cpputils_cmake.txt")
 
