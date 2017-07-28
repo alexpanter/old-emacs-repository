@@ -11,7 +11,7 @@
 ;; GROUP: Programming - General               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my-prog-mode-hook ()
-  "Settings for general programmin modes.
+  "Settings for general programming modes.
 Will default if not overriden in specific mode hooks."
 
   (setq indent-tabs-mode nil)
@@ -51,10 +51,12 @@ Will default if not overriden in specific mode hooks."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my-emacs-lisp-mode-hook ()
   "Custom e-lisp settings."
-
+  (smartparens-global-mode 0)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-mode-hook)
+(add-hook 'lisp-mode-hook 'my-emacs-lisp-mode-hook)
+(add-hook 'common-lisp-mode 'my-emacs-lisp-mode-hook)
 
 
 
@@ -105,7 +107,6 @@ Will default if not overriden in specific mode hooks."
 ;; "python": What Python developers use for extension modules.
 ;; "java": The default style for java-mode (see below)
 ;; "user": When you want to define your own style
-
 
 ;; (defun my-c-mode-common-hook ()
 ;;   "This hook contain customizations for helm-gtags, company-c-headers."
@@ -288,6 +289,8 @@ Will default if not overriden in specific mode hooks."
   "Custom hook for `c++-mode' settings."
   ;; (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5/"))
 
+  (electric-pair-mode 1) ; automatic pairing of parantheses
+
   (when (equal c++-default-style "Mine")
 	(setq-default c-basic-offset 4
 		      tab-width 4
@@ -306,6 +309,11 @@ Will default if not overriden in specific mode hooks."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GROUP: Programming - Languages -> GLSL       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; custom setup for glsl-mode
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.shd\\'" . glsl-mode))
+
 (defun my-glsl-mode-hook ()
   "Custom OpenGL shader language(glsl) settings."
 
@@ -319,7 +327,6 @@ Will default if not overriden in specific mode hooks."
   )
 
 (add-hook 'glsl-mode-hook 'my-glsl-mode-hook)
-
 
 
 
