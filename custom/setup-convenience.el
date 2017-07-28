@@ -179,6 +179,12 @@
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Useful commands:
+;;
+;; Search through completion list with C-s, C-r, and C-o.
+;; Move up and down with M-n and M-p.
+;; Press <f1> to display documentation for the selected candidate,
+;; or C-w to see its source.
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -226,5 +232,22 @@
 (projectile-global-mode)
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PACKAGE: function-args               ;;
+;;                                      ;;
+;; GROUP: Convenience -> Navigation     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'function-args)
+(fa-config-default)
+
+;; useful shortcuts:
+;;
+;; commands (M-x) starting with either 'moo-' or 'fa-'
+;; belong to this awesome package.
+;;
+;; M-i/M-u : show/hide function signature
+;; M-o : complete at point
 
 
