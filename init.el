@@ -49,6 +49,7 @@
 (mapc 'load (directory-files "~/.emacs.d/custom" t ".*\.el"))
 
 ;; load custom modules
+(require 'setup-helm)
 (require 'setup-editing)
 (require 'setup-appearance)
 (require 'setup-navigation)
