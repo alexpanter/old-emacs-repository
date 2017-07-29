@@ -55,13 +55,6 @@
 ;; to fit the number of search candidates.
 (helm-autoresize-mode t)
 
-;; if golden-ratio is being used, its interference with the Helm window has
-;; to be disabled with the following command:
-;; (defun pl/bound-alive-p ()
-;;   (if (boundp 'helm-alive-p)
-;;       (symbol-value 'helm-alive-p)))
-
-
 ;; Command: helm-M-x
 (global-set-key (kbd "M-x") 'helm-M-x)
 

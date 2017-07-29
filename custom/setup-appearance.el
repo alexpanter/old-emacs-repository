@@ -22,6 +22,16 @@
 
 
 
+;; MODE LINE
+;;
+;; Hide the ridiculously long list of activated minor modes.
+(use-package rich-minority
+  :init
+  (rich-minority-mode 1)
+   (setf rm-blacklist ""))
+
+
+
 ;; FRAME TITLE
 ;;
 ;; more useful frame title, that show either a file or a
@@ -80,6 +90,13 @@
 ;;
 ;; show column numbers in the mode line
 (column-number-mode)
+
+
+
+;; BATTERY INFORMATION
+;;
+;; display battery charge in mode line
+(display-battery-mode)
 
 
 

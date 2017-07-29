@@ -21,6 +21,8 @@
   (unless modifier (setq modifier 'control))
   (global-set-key (vector (list modifier 'left)) 'previous-buffer)
   (global-set-key (vector (list modifier 'right)) 'next-buffer)
+  (global-set-key (kbd "C-<left>") 'previous-buffer)
+  (global-set-key (kbd "C-<right>") 'next-buffer)
   )
 
 (bufmove-default-keybindings)

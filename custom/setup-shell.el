@@ -68,7 +68,7 @@
             (ansi-term term-cmd))
         (ansi-term term-cmd)))))
 
-(global-set-key (kbd "<f2>") 'visit-ansi-term)
+(global-set-key (kbd "<f1>") 'visit-ansi-term)
 
 
 
@@ -77,7 +77,7 @@
 ;; use `M-x shell-pop' to get the desired shell below of the buffer,
 ;; then toggle it as desired again with `M-x shell-pop'.
 (require 'shell-pop)
-(global-set-key (kbd "<f8>") 'shell-pop)
+(global-set-key (kbd "<f2>") 'shell-pop)
 
 
 

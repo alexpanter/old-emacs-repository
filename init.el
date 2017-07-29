@@ -19,9 +19,10 @@
                  helm-core async help+ help-fns+ help-mode+ highlight-numbers
                  parent-mode highlight-symbol ibuffer-git ibuffer-vc info+
                  magit magit-popup git-commit with-editor markdown-mode
-                 projectile rainbow-mode recentf-ext shell-pop
+                 projectile rainbow-mode recentf-ext shell-pop ggtags
                  smartparens sr-speedbar undo-tree volatile-highlights
-                 yasnippet zenburn-theme ztree function-args))
+                 yasnippet zenburn-theme ztree function-args
+                 use-package rich-minority))
 
 ;; Add and enable the MELPA package archive
 (require 'package)
@@ -40,6 +41,12 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; faster loading of packages:
+;; https://github.com/jwiegley/use-package#upgrading-to-2x
+(eval-when-compile
+  (require 'use-package)
+  (setq use-package-always-ensure t))
+
 
 
 ;;; =====  PACKAGE CUSTOMIZATION  ===== ;;;
@@ -50,9 +57,13 @@
 
 ;; load custom modules
 (require 'setup-helm)
+(require 'setup-helm-gtags)
+(require 'setup-c)
+;; (require 'setup-ggtags) ; WHY outcommented!!?
+
 (require 'setup-editing)
 (require 'setup-appearance)
-(require 'setup-navigation)
+
 (require 'setup-languages)
 (require 'setup-compilation)
 
@@ -60,6 +71,8 @@
 (require 'setup-communication)
 (require 'setup-shell)
 (require 'setup-files)
+
+(require 'setup-navigation)
 
 
 
@@ -97,15 +110,22 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "PfEd" :family "Inconsolata"))))
+ '(fringe ((t (:background "gray7" :foreground "#DCDCCC"))))
+ '(header-line ((t (:background "#283b3d" :foreground "#F0DFAF" :box (:line-width -1 :style released-button)))))
  '(helm-ff-directory ((t (:background "#050505" :foreground "steel blue" :weight bold))))
  '(helm-ff-dotted-directory ((t (:background "#050505" :foreground "orange red"))))
  '(helm-ff-dotted-symlink-directory ((t (:background "DimGray" :foreground "DarkOrange"))))
  '(helm-ff-executable ((t (:background "#050505" :foreground "yellow green" :weight normal))))
  '(helm-ff-file ((t (:background "#050505" :foreground "#DCDCCC" :weight normal))))
  '(helm-ff-symlink ((t (:background "#050505" :foreground "#F0DFAF" :weight bold))))
+ '(highlight-numbers-number ((t (:inherit font-lock-constant-face :foreground "#00c5c5"))))
  '(hl-line ((t (:background "#111111"))))
  '(linum ((t (:background "#050505" :foreground "#9FC59F"))))
+ '(mode-line ((t (:background "#8B2B2B" :foreground "#8FB28F" :box (:line-width -1 :style released-button)))))
  '(region ((t (:background "dark green"))))
  '(trailing-whitespace ((t (:background "#F53525"))))
+ '(undo-tree-visualizer-active-branch-face ((t (:foreground "chocolate3" :weight bold))))
+ '(undo-tree-visualizer-current-face ((t (:foreground "sky blue" :weight bold))))
+ '(vertical-border ((t (:foreground "dark slate gray"))))
  '(vhl/default-face ((t (:background "dark goldenrod" :foreground "black")))))
 (put 'upcase-region 'disabled nil)

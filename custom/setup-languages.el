@@ -44,6 +44,8 @@ Will default if not overriden in specific mode hooks."
 (defun my-emacs-lisp-mode-hook ()
   "Custom e-lisp settings."
   (smartparens-global-mode 0)
+  (global-set-key (kbd "C-<left>") 'previous-buffer)
+  (global-set-key (kbd "C-<right>") 'next-buffer)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-mode-hook)
@@ -89,6 +91,15 @@ Will default if not overriden in specific mode hooks."
 ;;
 (defun my-c-mode-common-hook ()
   "Custom settings for c-mode-common."
+
+  (setq company-backends (delete 'company-semantic company-backends))
+  (define-key c-mode-map (kbd "M-o") 'company-complete)
+  (define-key c++-mode-map (kbd "M-o") 'company-complete)
+
+  (add-to-list 'company-backends 'company-c-headers)
+  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/"))
+  (lambda () (add-to-list 'company-c-headers-path-system "/usr/local/include/"))
+  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)

@@ -21,13 +21,11 @@
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
-(sp-use-paredit-bindings)
 ;;
-;; keys needed for custom window navigation functions
-(global-unset-key (kbd "C-<left>"))
-(global-unset-key (kbd "C-<right>"))
+(use-package smartparens
+  :init
+  (smartparens-mode t))
 ;;
-(smartparens-mode t)
 
 
 
@@ -70,15 +68,17 @@
 ;; operations. To activate undo-tree press C-x u.
 ;; Press C-/ to undo.
 ;; Press C-_ to redo.
-(require 'undo-tree)
-(global-undo-tree-mode)
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode))
 
 
 
 ;; EXPAND REGION
 ;;
-(require 'expand-region)
-(global-set-key (kbd "M-m") 'er/expand-region)
+(use-package expand-region
+  :init
+  (global-set-key (kbd "M-m") 'er/expand-region))
 
 
 
@@ -99,8 +99,9 @@
 ;; VOLATILE HIGHLIGHTS
 ;;
 ;; dynamically highlights changes with copy/paste operations in the buffer
-(require 'volatile-highlights)
-(volatile-highlights-mode t)
+(use-package volatile-highlights
+  :init
+  (volatile-highlights-mode t))
 
 
 
@@ -113,8 +114,9 @@
 ;; CLEAN AINDENT
 ;;
 ;; cleans up unused whitespace
-(require 'clean-aindent-mode)
-(add-hook 'prog-mode-hook 'clean-aindent-mode)
+(use-package clean-aindent-mode
+  :init
+  (add-hook 'prog-mode-hook 'clean-aindent-mode))
 
 
 
@@ -260,6 +262,15 @@ which buffer they want to kill."
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+
+
+;; FLYCHECK
+;;
+(use-package flycheck
+  :init
+  (global-flycheck-mode))
+
+(use-package flycheck-tip)
 
 
 (provide 'setup-editing)
