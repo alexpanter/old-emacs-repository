@@ -6,7 +6,7 @@
 
 
 
-;;; ===== PACKAGE LIST ===== ;;;
+;;; =====  PACKAGE LIST  ===== ;;;
 
 ; list the packages you want
 (setq package-list
@@ -19,7 +19,7 @@
                  helm-core async help+ help-fns+ help-mode+ highlight-numbers
                  parent-mode highlight-symbol ibuffer-git ibuffer-vc info+
                  magit magit-popup git-commit with-editor markdown-mode
-                 nyan-mode projectile rainbow-mode recentf-ext shell-pop
+                 projectile rainbow-mode recentf-ext shell-pop
                  smartparens sr-speedbar undo-tree volatile-highlights
                  yasnippet zenburn-theme ztree function-args))
 
@@ -42,34 +42,27 @@
 
 
 
-;;; ===== PACKAGE CUSTOMIZATION ===== ;;;
+;;; =====  PACKAGE CUSTOMIZATION  ===== ;;;
 
 ;; add modules path
 (add-to-list 'load-path "~/.emacs.d/custom/")
 (mapc 'load (directory-files "~/.emacs.d/custom" t ".*\.el"))
 
 ;; load custom modules
-(require 'helm-config)
-(require 'setup-gtags)
-(require 'setup-programming)
+(require 'setup-editing)
+(require 'setup-appearance)
+(require 'setup-navigation)
+(require 'setup-languages)
+(require 'setup-compilation)
+
 (require 'setup-applications)
 (require 'setup-communication)
-(require 'setup-data)
-(require 'setup-development)
-(require 'setup-editing)
-(require 'setup-environment)
-(require 'setup-external)
-(require 'setup-faces-and-ui)
+(require 'setup-shell)
 (require 'setup-files)
-(require 'setup-help)
-(require 'setup-text)
-(require 'setup-local)
-(require 'setup-convenience)
 
 
 
-
-;;; ===== AUTOMATIC CONFIGURATION ===== ;;;
+;;; =====  AUTOMATIC CONFIGURATION  ===== ;;;
 
 ;; custom configurations
 (custom-set-variables
@@ -81,6 +74,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
@@ -88,14 +82,29 @@
  '(doc-view-continuous t)
  '(safe-local-variable-values
    (quote
-    ((companye-clang-arguments "-I/home/alexander/Documents/C++Docs")))))
+    ((company-clang-arguments "-I/home/alexander/Documents/Graphics/GameEngine/")
+     (companye-clang-arguments "-I/home/alexander/Documents/C++Docs"))))
+ '(shell-pop-shell-type
+   (quote
+    ("ansi-term" "*ansi-term*"
+     (lambda nil
+       (ansi-term shell-pop-term-shell)))))
+ '(shell-pop-window-size 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "PfEd" :family "Inconsolata"))))
+ '(helm-ff-directory ((t (:background "#050505" :foreground "steel blue" :weight bold))))
+ '(helm-ff-dotted-directory ((t (:background "#050505" :foreground "orange red"))))
+ '(helm-ff-dotted-symlink-directory ((t (:background "DimGray" :foreground "DarkOrange"))))
+ '(helm-ff-executable ((t (:background "#050505" :foreground "yellow green" :weight normal))))
+ '(helm-ff-file ((t (:background "#050505" :foreground "#DCDCCC" :weight normal))))
+ '(helm-ff-symlink ((t (:background "#050505" :foreground "#F0DFAF" :weight bold))))
  '(hl-line ((t (:background "#111111"))))
  '(linum ((t (:background "#050505" :foreground "#9FC59F"))))
  '(region ((t (:background "dark green"))))
- '(trailing-whitespace ((t (:background "#F53525")))))
+ '(trailing-whitespace ((t (:background "#F53525"))))
+ '(vhl/default-face ((t (:background "dark goldenrod" :foreground "black")))))
+(put 'upcase-region 'disabled nil)

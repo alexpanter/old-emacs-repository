@@ -1,22 +1,15 @@
-(provide 'setup-external)
-
-;; GROUP: Process -> FLyspell
-(if (executable-find "aspell")
-    (progn
-      (setq ispell-program-name "aspell")
-      (setq ispell-extra-args '("--sug-mode=ultra")))
-  (setq ispell-program-name "ispell"))
-
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;;; package --- Summary
+;;;
+;;; Commentary:
+;;;
+;;; Code:
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; GROUP: Processes -> Gud            ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TERM MODE
+;;
 (setq gud-chdir-before-run nil)
-
+;;
 ;; term-mode, used in M-x term
 (defun my-term-setup ()
   (interactive)
@@ -43,9 +36,9 @@
   (define-key term-mode-map (kbd "C-0") 'delete-window))
 (add-hook 'term-mode-hook 'my-term-setup t)
 (setq term-buffer-maximum-size 0)
-
+;;
 (require 'term)
-
+;;
 ;; taken from here: http://www.enigmacurry.com/2008/12/26/emacs-ansi-term-tricks/
 (defun visit-ansi-term ()
   "If the current buffer is:
@@ -56,7 +49,7 @@
   (interactive)
   (let ((is-term (string= "term-mode" major-mode))
         (is-running (term-check-proc (buffer-name)))
-        (term-cmd "/bin/zsh")
+        (term-cmd "/bin/bash")
         (anon-term (get-buffer "*ansi-term*")))
     (if is-term
         (if is-running
@@ -78,11 +71,15 @@
 (global-set-key (kbd "<f2>") 'visit-ansi-term)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; PACKAGE: shell-pop                     ;;
-;;                                        ;;
-;; GROUP: Processes -> Shell -> Shell Pop ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'shell-pop)
-(global-set-key (kbd "C-c t") 'shell-pop)
 
+;; SHELL-POP
+;;
+;; use `M-x shell-pop' to get the desired shell below of the buffer,
+;; then toggle it as desired again with `M-x shell-pop'.
+(require 'shell-pop)
+(global-set-key (kbd "<f8>") 'shell-pop)
+
+
+
+(provide 'setup-shell)
+;;; setup-shell ends here

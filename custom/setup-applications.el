@@ -4,13 +4,14 @@
 ;;;
 ;;; Commentary:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; GROUP: Applications -> Eshell       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; ESHELL CONFIGURATION
+;;
 (require 'eshell)
 (require 'em-alias)
 ;; (require 'cl)
-
+;;
 ;; Advice find-file-other-window to accept more than one file
 (defadvice find-file-other-window (around find-files activate)
   "Also find all files within a list of files.  This even works recursively."
