@@ -85,7 +85,7 @@
 ;; COMMENT/OUTCOMMENT REGION
 ;;
 ;; SOME MAGICAL HOTFIX THAT ACTUALLY WORKS !!!
-; (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 
 
@@ -241,12 +241,10 @@ which buffer they want to kill."
 
 
 
-;; WINNER MODE
+;; KILL SEVERAL BUFFERS
 ;;
-;; having many windows open, then pressing C-x 1 to close them all except one,
-;; then going back is difficult. winner-mode solves this problem
-(when (fboundp 'winner-mode)
-      (winner-mode 1))
+;; kill several buffers at the same time, asking for confirmation.
+(global-set-key (kbd "C-x C-k") 'kill-some-buffers)
 
 
 

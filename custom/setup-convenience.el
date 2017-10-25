@@ -47,7 +47,16 @@
 ;; a project can be marked as projectile-project by adding an
 ;; empty .projectile file in the projects root folder.
 ;; see "https://github.com/bbatsov/projectile" for more info.
-(projectile-global-mode)
+(projectile-mode)
+
+
+
+;; WINNER MODE
+;;
+;; having many windows open, then pressing C-x 1 to close them all except one,
+;; then going back is difficult. winner-mode solves this problem
+(when (fboundp 'winner-mode)
+      (winner-mode 1))
 
 
 

@@ -1,3 +1,4 @@
+
 ;;; package --- Summary
 ;;;
 ;;; Commentary:
@@ -40,8 +41,10 @@
 	 (fr-height (frame-height)))
     (cond
      ((eq 0 this-window-y-min) "top")
-     ((eq (- fr-height 0) this-window-y-max) "bot")
+     ((eq (- fr-height 5) this-window-y-max) "bot")
      (t "mid"))))
+
+;; (window-edges) : (left-X up-Y right-X bottom-Y) (screen coordinates)
 
 (defun win-resize-left-or-right ()
   "Figure out if the current window is to the left, right or in the middle"
@@ -51,7 +54,11 @@
 	 (fr-width (frame-width)))
     (cond
      ((eq 0 this-window-x-min) "left")
-     ((eq (+ fr-width 2) this-window-x-max) "right")
+
+     ;; WARNING:
+     ;; `(+ fr-width 4)' is a hard-coded value. If side-scroll bars were
+     ;; enabled, this should *probably* be `(+ fr-width 1)' or similar.
+     ((eq (+ fr-width 4) this-window-x-max) "right")
      (t "mid"))))
 
 (defun win-resize-default-left ()

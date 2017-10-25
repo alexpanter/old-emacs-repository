@@ -5,7 +5,7 @@
 ;;; Code:
 
 
-;; GENERAL MODE
+;; PROG MODE
 ;;
 (defun my-prog-mode-hook ()
   "Settings for general programming modes.
@@ -15,6 +15,7 @@ Will default if not overriden in specific mode hooks."
   (setq-default tab-width 4)
   (setq company--auto-completion nil)
   (setq-default indent-tabs-mode nil)
+  (setq show-trailing-whitespace 1)
   )
 
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
@@ -23,19 +24,13 @@ Will default if not overriden in specific mode hooks."
 
 ;; MARKDOWN MODE
 ;;
-;; (defun my-markdown-mode-hook ()
-;;   "Settings chosen when using markdown mode."
-
-;;   (use-package markdown-mode
-;;                :ensure t
-;;                :commands (markdown-mode gfm-mode)
-;;                :mode (("README\\.md\\'" . gfm-mode)
-;;                       ("\\.md\\'" . markdown-mode)
-;;                       ("\\.markdown\\'" . markdown-mode))
-;;                :init (setq markdown-command "multimarkdown"))
-;;   )
-
-;; (add-hook 'markdown-mode-hook 'my-markdown-mode-hook)
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 
 
@@ -43,7 +38,6 @@ Will default if not overriden in specific mode hooks."
 ;;
 (defun my-emacs-lisp-mode-hook ()
   "Custom e-lisp settings."
-  (smartparens-global-mode 0)
   (global-set-key (kbd "C-<left>") 'previous-buffer)
   (global-set-key (kbd "C-<right>") 'next-buffer)
   )
@@ -87,6 +81,14 @@ Will default if not overriden in specific mode hooks."
 
 
 
+;; FUTHARK MODE
+(defun my-futhark-mode-hook ()
+  (setq show-trailing-whitespace 1)
+  )
+
+(add-hook 'futhark-mode-hook 'my-futhark-mode-hook)
+
+
 ;; COMMON C MODE
 ;;
 (defun my-c-mode-common-hook ()
@@ -99,7 +101,6 @@ Will default if not overriden in specific mode hooks."
   (add-to-list 'company-backends 'company-c-headers)
   (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/"))
   (lambda () (add-to-list 'company-c-headers-path-system "/usr/local/include/"))
-  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
@@ -191,6 +192,10 @@ Will default if not overriden in specific mode hooks."
   "Custom hook for `c++-mode' settings."
 
   (electric-pair-mode 1) ; automatic pairing of parantheses
+  (smartparens-mode 1)
+
+  (lambda () (add-to-list 'company-c-headers-path-system "-std=c++11"))
+  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
 
   (when (equal c++-default-style "Mine")
 	(setq-default c-basic-offset 4
@@ -254,6 +259,8 @@ Will default if not overriden in specific mode hooks."
   (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
   (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-")
   (setq fsharp-compiler "/usr/bin/fsharpc")
+
+  (setq company-minimum-prefix-length 3)
   )
 
 (add-hook 'fsharp-mode-hook 'my-fsharp-mode-hook)
@@ -308,6 +315,7 @@ M-RET will invoke fsharp-eval-region, C-SPC will invoke fsharp-ac/complete-at-po
   (setq electric-indent-inhibit 1)
   (setq tex-indent-basic 0)
   (setq tex-indent-item 0)
+  (setq show-trailing-whitespace 1)
   )
 
 (add-hook 'latex-mode-hook 'my-latex-mode-hook)
@@ -335,6 +343,18 @@ M-RET will invoke fsharp-eval-region, C-SPC will invoke fsharp-ac/complete-at-po
 (setq prelude-makefile-mode-hook 'prelude-makefile-mode-defaults)
 (add-hook 'makefile-mode-hook (lambda ()
                                 (run-hooks 'prelude-makefile-mode-hook)))
+
+
+
+;; HTML MODE
+;;
+;; Also accounts (probably) for editing XML-style documents.
+(defun my-sgml-mode-hook ()
+  (setq show-trailing-whitespace 1)
+  )
+
+(add-hook 'sgml-mode-hook 'my-sgml-mode-hook)
+
 
 
 (provide 'setup-languages)

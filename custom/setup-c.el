@@ -19,7 +19,7 @@
 ;;
 (use-package company-c-headers
   :init
-(add-to-list 'company-backends 'company-c-headers))
+  (add-to-list 'company-backends 'company-c-headers))
 ;; Header file completion with company-c-headers :
 ;; (add-to-list 'company-backends 'company-c-headers)
 
@@ -56,7 +56,12 @@
   (semantic-mode 1)
   (global-semanticdb-minor-mode 1)
   (global-semantic-idle-scheduler-mode 1)
-  (global-semantic-stickyfunc-mode 1))
+  (global-semantic-stickyfunc-mode 0))
+
+(semantic-add-system-include "/usr/local/include")
+(semantic-add-system-include "~/linux/include")
+(semantic-add-system-include "/usr/include/c++/5")
+
 
 
 (use-package function-args
@@ -88,6 +93,15 @@
 (add-hook 'c-mode-common-hook 'alexott/cedet-hook)
 (add-hook 'c-mode-hook 'alexott/cedet-hook)
 (add-hook 'c++-mode-hook 'alexott/cedet-hook)
+
+
+;; setup ede to work with company-c-headers
+(defun ede-object-system-include-path ()
+  "Return the system include path for the current buffer."
+  (when ede-object
+    (ede-system-include-path ede-object)))
+
+(setq company-c-headers-path-system 'ede-object-system-include-path)
 
 
 

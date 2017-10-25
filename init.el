@@ -42,7 +42,7 @@
     (package-install package)))
 
 ;; faster loading of packages:
-;; https://github.com/jwiegley/use-package#upgrading-to-2x
+;; https://github.com/jwiegley/use-package
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
@@ -75,6 +75,11 @@
 (require 'setup-navigation)
 
 
+;; TODO: Add hotfix that actually works and fixes the *very* annoying PROBLEM !
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (global-set-key (kbd "C-c C-r") 'comment-or-uncomment-region)))
+
 
 ;;; =====  AUTOMATIC CONFIGURATION  ===== ;;;
 
@@ -89,6 +94,9 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(column-number-mode t)
+ '(company-c-headers-path-system
+   (quote
+    ("/usr/include/" "/usr/local/include/" "/usr/include/c++/5.4.0/")))
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
@@ -96,14 +104,21 @@
  '(doc-view-continuous t)
  '(safe-local-variable-values
    (quote
-    ((company-clang-arguments "-I/home/alexander/Documents/Graphics/GameEngine/")
+    ((company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "/home/alexander/Documents/GameDev/GameEngine/")
+     (company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include")
+     (company-clang-arguments "-I/home/<user>/project_root/include1/" "-I/home/<user>/project_root/include2/")
+     (company-clang-arguments "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
+     (flycheck-gcc-language-standard . c++11)
+     (company-clang-arguments "-std=c++11" "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
+     (company-clang-arguments "-I/home/alexander/Documents/Graphics/GameEngine/")
      (companye-clang-arguments "-I/home/alexander/Documents/C++Docs"))))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
      (lambda nil
        (ansi-term shell-pop-term-shell)))))
- '(shell-pop-window-size 25))
+ '(shell-pop-window-size 25)
+ '(sp-highlight-pair-overlay nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
