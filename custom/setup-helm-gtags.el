@@ -2,9 +2,10 @@
 ;;; Before using ggtags or helm-gtags, remember to create a GTAGS database by
 ;;; running gtags at your project root in terminal.
 ;;; $ cd /path/to/project/root
-;;; $ gtags
+;;; $ gtags -c
 ;;;
-;;; After this, a few files are created:
+;;; The flag `-c' indicates that compact database format is used (saves a lot
+;;; of hard disk space). After this, a few files are created:
 ;;; $ ls G*
 ;;; GPATH   GRTAGS  GTAGS
 ;;;

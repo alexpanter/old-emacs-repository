@@ -11,7 +11,10 @@
 (use-package company
   :init
   (global-company-mode 1)
-  (delete 'company-semantic company-backends))
+  (setq company-backends (delete 'company-semantic company-backends))
+  (define-key c++-mode-map [(C-tab)] 'company-complete)
+  (define-key c-mode-map [(C-tab)] 'company-complete)
+  )
 
 
 
@@ -60,7 +63,7 @@
 
 (semantic-add-system-include "/usr/local/include")
 (semantic-add-system-include "~/linux/include")
-(semantic-add-system-include "/usr/include/c++/5")
+(semantic-add-system-include "/usr/include/c++/8/")
 
 
 
@@ -101,9 +104,13 @@
   (when ede-object
     (ede-system-include-path ede-object)))
 
-(setq company-c-headers-path-system 'ede-object-system-include-path)
-
-
+;; (setq company-c-headers-path-system 'ede-object-system-include-path)
+(lambda () (add-to-list 'company-c-headers-path-system "-std=c++17"))
+(lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5/"))
+(lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
+(lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/"))
+(lambda () (add-to-list 'company-clang-arguments "-stdlib=libc++"))
+(lambda () (add-to-list 'company-clang-arguments "-std=c++17"))
 
 (provide 'setup-c)
 ;;; setup-c ends here

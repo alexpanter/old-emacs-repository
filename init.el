@@ -8,21 +8,21 @@
 
 ;;; =====  PACKAGE LIST  ===== ;;;
 
-; list the packages you want
-(setq package-list
-      '(anaphora cider seq spinner queue pkg-info epl clojure-mode
-                 clean-aindent-mode company-c-headers company company-jedi
-                 jedi-core python-environment deferred epc ctable concurrent
-                 csharp-mode diff-hl dired+ discover-my-major makey
-                 expand-region f dash s flycheck-tip popup flycheck let-alist
-                 fsharp-mode pos-tip company-quickhelp helm-gtags helm
-                 helm-core async help+ help-fns+ help-mode+ highlight-numbers
-                 parent-mode highlight-symbol ibuffer-git ibuffer-vc info+
-                 magit magit-popup git-commit with-editor markdown-mode
-                 projectile rainbow-mode recentf-ext shell-pop ggtags
-                 smartparens sr-speedbar undo-tree volatile-highlights
-                 yasnippet zenburn-theme ztree function-args
-                 use-package rich-minority))
+;; list the packages you want
+(defvar-local package-list
+  '(anaphora cider seq spinner queue pkg-info epl clojure-mode
+             clean-aindent-mode company-c-headers company company-jedi
+             jedi-core python-environment deferred epc ctable concurrent
+             csharp-mode diff-hl dired+ discover-my-major makey
+             expand-region f dash s flycheck-tip popup flycheck let-alist
+             fsharp-mode pos-tip company-quickhelp helm-gtags helm
+             helm-core async help+ help-fns+ help-mode+ highlight-numbers
+             parent-mode highlight-symbol ibuffer-git ibuffer-vc info+
+             magit magit-popup git-commit with-editor markdown-mode
+             projectile rainbow-mode recentf-ext shell-pop ggtags
+             smartparens sr-speedbar undo-tree volatile-highlights
+             yasnippet zenburn-theme ztree function-args
+             use-package rich-minority))
 
 ;; Add and enable the MELPA package archive
 (require 'package)
@@ -100,17 +100,20 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("72c255b5d12f35d7207c04d49670fc5811a60f6141a6b3a49c68da111a461bc9" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" default)))
+    ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" "72c255b5d12f35d7207c04d49670fc5811a60f6141a6b3a49c68da111a461bc9" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" default)))
  '(doc-view-continuous t)
  '(safe-local-variable-values
    (quote
-    ((company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "/home/alexander/Documents/GameDev/GameEngine/")
+    ((company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "-stdlib=libc++" "-std=c++17")
+     (company-clang-arguments "-I/home/<user>/project_root/include1/" "-I/home/<user>/project_root/include2/" "-stdlib=libc++")
+     (company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "/home/alexander/Documents/GameDev/GameEngine/")
      (company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include")
      (company-clang-arguments "-I/home/<user>/project_root/include1/" "-I/home/<user>/project_root/include2/")
      (company-clang-arguments "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
      (flycheck-gcc-language-standard . c++11)
      (company-clang-arguments "-std=c++11" "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
      (company-clang-arguments "-I/home/alexander/Documents/Graphics/GameEngine/")
+     (company-clang-arguments "-I/home/alexander/Documents/Viking-Village/src/")
      (companye-clang-arguments "-I/home/alexander/Documents/C++Docs"))))
  '(shell-pop-shell-type
    (quote

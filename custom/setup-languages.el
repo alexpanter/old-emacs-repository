@@ -1,3 +1,4 @@
+
 ;;; package --- setup-languages
 ;;;
 ;;; Commentary:
@@ -31,6 +32,9 @@ Will default if not overriden in specific mode hooks."
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+(add-hook 'markdown-mode-hook
+          (lambda () (setq show-trailing-whitespace 1)))
 
 
 
@@ -194,8 +198,11 @@ Will default if not overriden in specific mode hooks."
   (electric-pair-mode 1) ; automatic pairing of parantheses
   (smartparens-mode 1)
 
-  (lambda () (add-to-list 'company-c-headers-path-system "-std=c++11"))
-  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
+  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/"))
+
+  (setq flycheck-c/c++-clang-executable "/usr/bin/clang++-6.0")
+  (setq flycheck-clang-language-standard "c++17")
+  (setq flycheck-clang-args (append flycheck-clang-args '("-Wno-pragma-once-outside-header")))
 
   (when (equal c++-default-style "Mine")
 	(setq-default c-basic-offset 4
@@ -208,6 +215,8 @@ Will default if not overriden in specific mode hooks."
   )
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 
 
 
@@ -260,7 +269,7 @@ Will default if not overriden in specific mode hooks."
   (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-")
   (setq fsharp-compiler "/usr/bin/fsharpc")
 
-  (setq company-minimum-prefix-length 3)
+  (setq-default company-minimum-prefix-length 3)
   )
 
 (add-hook 'fsharp-mode-hook 'my-fsharp-mode-hook)
@@ -327,6 +336,13 @@ M-RET will invoke fsharp-eval-region, C-SPC will invoke fsharp-ac/complete-at-po
 (setq gdb-many-windows t ; use gdb-many-windows by default
       gdb-show-main t)   ; Non-nil means display source file containing
                          ; the main routine at startup.
+
+
+
+;; CUDA PROGRAMMING
+;;
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cu.h\\'" . c++-mode))
 
 
 

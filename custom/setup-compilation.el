@@ -48,9 +48,9 @@
 
   ;; c++-mode
   (when (member major-mode '(c++-mode))
-    (setq comp-flags "-std=c++11 ")
+    (setq comp-flags "-std=c++17 ")
     (setq output (concat "-o " (file-name-sans-extension filename) " "))
-    (setq compile-command (concat "g++ " comp-flags output filename)))
+    (setq compile-command (concat "clang++-6.0 " comp-flags output filename)))
 
   ;; fsharp-mode
   (when (member major-mode '(fsharp-mode))

@@ -39,6 +39,15 @@
 
 
 
+;; DELETE TRAILING WHITE SPACE
+;;
+;; on save, automatically strip file of trailing white space
+;; (add-hook 'after-save-hook
+;;           (lambda ()
+;;             (delete-trailing-whitespace)))
+
+
+
 ;; WHITESPACE MODE
 ;;
 ;; activate whitespace-mode to view all whitespace characters
@@ -266,7 +275,9 @@ which buffer they want to kill."
 ;;
 (use-package flycheck
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  (setq flycheck-c/c++-clang-executable "/usr/bin/clang++-6.0")
+  (setq flycheck-clang-language-standard "c++17"))
 
 (use-package flycheck-tip)
 

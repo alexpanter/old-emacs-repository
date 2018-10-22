@@ -120,9 +120,14 @@
 ;; change font to inconsolata for better looking text
 ;; remember to install the font Inconsolata first
 (setq default-frame-alist '((font . "Inconsolata-10")))
+;;(setq default-frame-alist '((font . "BeowulfRunic-10")))
+;;(setq default-frame-alist '((font . "Rotunda-10")))
+;;(setq default-frame-alist '((font . "Viking-10")))
+;;(setq default-frame-alist '((font . "Norse-10")))
 ;; set italic font for italic face, since Emacs does not set italic
 ;; face automatically
 (set-face-attribute 'italic nil
+;                    :family "Viking-Italic")
                     :family "Inconsolata-Italic")
 (set-face-attribute 'default (selected-frame)
 					:height 98)
