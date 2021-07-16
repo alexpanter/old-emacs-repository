@@ -1,4 +1,3 @@
-
 ;;; package --- setup-languages
 ;;;
 ;;; Commentary:
@@ -198,7 +197,7 @@ Will default if not overriden in specific mode hooks."
   (electric-pair-mode 1) ; automatic pairing of parantheses
   (smartparens-mode 1)
 
-  (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/"))
+  ;; (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/"))
 
   (setq flycheck-c/c++-clang-executable "/usr/bin/clang++-6.0")
   (setq flycheck-clang-language-standard "c++17")
@@ -206,17 +205,23 @@ Will default if not overriden in specific mode hooks."
 
   (when (equal c++-default-style "Mine")
 	(setq-default c-basic-offset 4
-		      tab-width 4
-		      indent-tabs-mode nil)
+                  tab-width 4
+                  indent-tabs-mode t)
+    (setq indent-tabs-mode t)
+    (setq-default indent-tabs-mode t)
 	(c-set-offset 'substatement-open 0)
     (c-set-offset 'func-decl-cont 0)
     (c-set-offset 'inline-open 0)
+    (c-set-offset 'brace-list-open 0)
 	)
   )
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
+
+;; allow remembering risky variables
+(defun risky-local-variable-p (sym &optional _ignored) nil)
 
 
 

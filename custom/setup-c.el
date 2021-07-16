@@ -64,7 +64,8 @@
 (semantic-add-system-include "/usr/local/include")
 (semantic-add-system-include "~/linux/include")
 (semantic-add-system-include "/usr/include/c++/8/")
-
+(semantic-add-system-include "/usr/include/c++/5.5.0")
+(semantic-add-system-include "/usr/include/c++/5")
 
 
 (use-package function-args
@@ -105,11 +106,12 @@
     (ede-system-include-path ede-object)))
 
 ;; (setq company-c-headers-path-system 'ede-object-system-include-path)
-(lambda () (add-to-list 'company-c-headers-path-system "-std=c++17"))
 (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5/"))
-(lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.4.0/"))
+(lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.5.0/"))
 (lambda () (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/"))
-(lambda () (add-to-list 'company-clang-arguments "-stdlib=libc++"))
+(lambda () (add-to-list 'company-c-headers-path-user "/usr/include/c++/5/"))
+(lambda () (add-to-list 'company-c-headers-path-user "/usr/include/c++/5.5.0/"))
+(lambda () (add-to-list 'company-c-headers-path-user "/usr/include/c++/8/"))
 (lambda () (add-to-list 'company-clang-arguments "-std=c++17"))
 
 (provide 'setup-c)
