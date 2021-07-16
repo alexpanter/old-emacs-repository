@@ -98,6 +98,16 @@
 
 
 
+;; INSERT SPECIAL CHARS
+;;
+;; SOME CHARS THAT NEEDED MANUAL FUNCTIONS AFTER UBUNTU 18 INSTALLATION
+(global-set-key (kbd "<dead-circumflex>") (lambda ()
+                                            (interactive) (insert-char 94)))
+(global-set-key (kbd "<dead-tilde>") (lambda ()
+                                       (interactive) (insert-char 126)))
+
+
+
 ;; DELETE SELECTION
 ;;
 ;; when this mode is active, marked text will be replaced with newly written
@@ -267,7 +277,7 @@ which buffer they want to kill."
 ;;
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 
 

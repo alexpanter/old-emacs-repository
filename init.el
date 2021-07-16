@@ -26,8 +26,7 @@
 
 ;; Add and enable the MELPA package archive
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -96,22 +95,27 @@
  '(column-number-mode t)
  '(company-c-headers-path-system
    (quote
-    ("/usr/include/" "/usr/local/include/" "/usr/include/c++/5.4.0/")))
+    ("/usr/include/" "/usr/local/include/" "/usr/include/c++/5.4.0/" "/usr/include/c++/8/")))
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" "72c255b5d12f35d7207c04d49670fc5811a60f6141a6b3a49c68da111a461bc9" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" default)))
+    ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" "72c255b5d12f35d7207c04d49670fc5811a60f6141a6b3a49c68da111a461bc9" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" default)))
  '(doc-view-continuous t)
+ '(flycheck-c/c++-clang-executable nil)
+ '(package-selected-packages
+   (quote
+    (hl-todo lua-mode ztree zenburn-theme yasnippet volatile-highlights use-package undo-tree swiper sr-speedbar smartparens shell-pop rich-minority recentf-ext rainbow-mode nyan-mode markdown-mode magit info+ ibuffer-vc ibuffer-git highlight-symbol highlight-numbers help-mode+ help-fns+ help+ helm-make helm-gtags haskell-mode ggtags function-args fsharp-mode flycheck-tip f expand-region discover-my-major dired+ diminish diff-hl csharp-mode company-jedi company-glsl company-c-headers clean-aindent-mode cider anaphora)))
  '(safe-local-variable-values
    (quote
-    ((company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "-stdlib=libc++" "-std=c++17")
-     (company-clang-arguments "-I/home/<user>/project_root/include1/" "-I/home/<user>/project_root/include2/" "-stdlib=libc++")
-     (company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include" "/home/alexander/Documents/GameDev/GameEngine/")
-     (company-clang-arguments "-I/usr/include/c++/5" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "/usr/include")
-     (company-clang-arguments "-I/home/<user>/project_root/include1/" "-I/home/<user>/project_root/include2/")
-     (company-clang-arguments "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
-     (flycheck-gcc-language-standard . c++11)
-     (company-clang-arguments "-std=c++11" "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "/usr/include")
+    ((flycheck-c/c++-clang-executable . "/usr/bin/clang++-6.0")
+     (company-clang-executable . "/usr/bin/clang++-6.0")
+     (company-c-headers-path-user . "/home/alexander/Documents/Viking-Village/src")
+     (company-c-headers-path-system . "/home/alexander/Documents/Viking-Village/src")
+     (company-c-headers-path-user . "/home/alexander/Documents/Viking-Village/src/")
+     (company-c-headers-path-system . "/home/alexander/Documents/Viking-Village/src/")
+     (company-clang-arguments . "-std=c++17")
+     (company-clang-arguments "-I/usr/include/c++/5" "-I/usr/include/c++/8" "-I/home/alexander/Documents/Viking-Village/src" "/usr/include/x86_64-linux-gnu/c++/5" "/usr/include/c++/5/backward" "/usr/lib/gcc/x86_64-linux-gnu/5/include" "/usr/local/include" "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "/usr/include/x86_64-linux-gnu" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include/c++/5/backward" "/usr/include" "-I/usr/local/include" "-stdlib=libc++" "-std=c++17")
+     (flycheck-gcc-language-standard . c++17)
      (company-clang-arguments "-I/home/alexander/Documents/Graphics/GameEngine/")
      (company-clang-arguments "-I/home/alexander/Documents/Viking-Village/src/")
      (companye-clang-arguments "-I/home/alexander/Documents/C++Docs"))))
@@ -147,3 +151,4 @@
  '(vertical-border ((t (:foreground "dark slate gray"))))
  '(vhl/default-face ((t (:background "dark goldenrod" :foreground "black")))))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
